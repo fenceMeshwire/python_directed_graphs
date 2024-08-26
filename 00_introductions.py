@@ -14,27 +14,27 @@ import os
 os.chdir(path=r"C:\Users\user\output_dir")
 
 # Data creation for random nodes:
-def create_nodes_list(no_of_nodes=5, lower_boundary=1, upper_boundary=5):
-    nodes = []
-    for _ in range(no_of_nodes):
+def create_edges_list(no_of_edges=5, lower_boundary=1, upper_boundary=5):
+    edges = []
+    for _ in range(no_of_edges):
         valid = False
         while valid == False:
-            # Create random nodes consisting of horizontal and vertical edges
-            node = random.randint(lower_boundary, upper_boundary), random.randint(lower_boundary, upper_boundary)
-            if not node in nodes:
-                nodes.append(node)
+            # Create random edges consisting of horizontal and vertical edges
+            edge = random.randint(lower_boundary, upper_boundary), random.randint(lower_boundary, upper_boundary)
+            if not edge in edges:
+                edges.append(edge)
                 valid = True
             else:
                 valid = False
-    return nodes
+    return edges
 
 # Create empty graph object nodes list:
 H = nx.Graph()
-nodes = create_nodes_list()
+edges = create_edges_list()
 
 # Create h, v edges for nodes:
-for i in range(len(nodes)):
-    h, v = nodes[i]
+for i in range(len(edges)):
+    h, v = edges[i]
     H.add_edge(h, v)
 
 # Draw graph:
